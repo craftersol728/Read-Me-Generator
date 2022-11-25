@@ -3,6 +3,22 @@ var inquire = require('inquirer');
 var fs = require('fs');
 
 // a buffer that will change through out the file
+var readMeBuffer = '';
+
+//read me requirements
+var readMeRequirements = 
+{
+    'title' :'',
+    'desc' :'',
+    'install' :'',
+    'usage' :'',
+    'contrib' :'',
+    'tests' :'',
+    'license' :'',
+    'auther name' :'',
+    'autherEmail' :'',
+    'fileName' :'',
+};
 
 //a few common licenses to use, along with their url and badge icon markdown
 const licenses =
@@ -14,8 +30,20 @@ const licenses =
     'Mozilla Public License 2.0' : ['https://opensource.org/licenses/MPL-2.0', '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'],
 }
 
+//if the answer is blank the program inputs nothing
+const isEmpty = async (input) =>{
+    if (input =='') return 'Can not be left empty';
+    else return true;
+}
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = [
+    {
+        type:'input',
+        name:'title',
+        message:'what is the title of this project',
+        validate: isEmpty,
+    },
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
