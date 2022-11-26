@@ -106,6 +106,31 @@ function writeToFile(fileName, data)
     });
 }
 
+//takes all the user entries and formats the readme
+function createReadme()
+{
+    readmeBuffer += `# ${readmeEntries.title} ${licenses[readmeEntries.license][1]}\n`;
+    readmeBuffer += `### ${readmeEntries.desc}\n`;
+
+    readmeBuffer += `## Table of Contents\n`;
+    if (readmeEntries.install != "") readmeBuffer += `- [Installation](#installation)\n`;
+    if (readmeEntries.usage != "") readmeBuffer += `- [Usage](#usage)\n`;
+    if (readmeEntries.contrib != "") readmeBuffer += `- [Contributions](#contributions)\n`;
+    if (readmeEntries.tests != "") readmeBuffer += `- [Testing](#testing)\n`;
+    readmeBuffer += `- [License](#license)\n`;
+    readmeBuffer += `- [Questions](#questions)\n`;
+
+    if (readmeEntries.install != "") readmeBuffer += `## Installation:\n${readmeEntries.install}\n`;
+    if (readmeEntries.usage != "") readmeBuffer += `## Usage\n${readmeEntries.usage}\n`;
+    if (readmeEntries.contrib != "") readmeBuffer += `## Contributions\n${readmeEntries.contrib}\n`;
+    if (readmeEntries.tests != "") readmeBuffer += `## Testing\n${readmeEntries.tests}\n`;
+    readmeBuffer += `## License\nThis project utilizes the <a href="${licenses[readmeEntries.license][0]}">${readmeEntries.license}</a> license.\n`;
+    readmeBuffer += `## Questions\nFor questions, you may contact ${readmeEntries.authorName} via email: <a href="mailto:${readmeEntries.authorEmail}">${readmeEntries.authorEmail}</a>`;
+
+    console.log('Readme file created, saving to disk.');
+    writeToFile(readmeEntries.fileName, readmeBuffer);
+}
+
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
@@ -137,5 +162,18 @@ function init() {
     });
 }
 
-// Function call to initialize app
-init();
+//an introduction to the script that confirms user intent before capturing CLI focus
+console.log('Welcome to the readme generation script. This tool will generate a pre-formatted readme.md based on what you selected');
+inquirer.prompt(
+    [
+        {
+            type: 'confirm',
+            name: 'begin',
+            message: 'Do u want to start?',
+        }
+    ]).then((response) =>
+    {
+        if (response.begin) return init();
+        else return console.log('Goodbye.');
+    });
+

@@ -1,7 +1,7 @@
 {
-  "name": "static-site",
+  "name": "jerry-readme-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "A readme generator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "8.2.4"
-  }
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/craftersol728/Read-Me-Generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/craftersol728/Read-Me-Generator/issues"
+  },
+  "homepage": "https://github.com/craftersol728/Read-Me-Generator"
 }
