@@ -97,10 +97,45 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) 
+{
+    fs.appendFile(('./outcome/'+fileName),data,function(err)
+    {
+        if (err) throw err;
+        console.log ('Saved');
+    });
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+    .then((answers) =>
+    {
+        readmeEntries.title = answers.title;
+        readmeEntries.desc = answers.description;
+        readmeEntries.install = answers.install;
+        readmeEntries.usage = answers.usage;
+        readmeEntries.contrib = answers.contrib;
+        readmeEntries.tests = answers.tests;
+        readmeEntries.license = answers.license;
+        readmeEntries.authorName = answers.username;
+        readmeEntries.authorEmail = answers.email;
+        readmeEntries.fileName = answers.fileName;
+
+        console.log('Responses logged, creating readme file.');
+        createReadme();        
+    })
+    .catch((error) =>
+    {
+        if (error.isTtyError)
+        {
+            console.log('prompt cannot- be rendered in the current environment.');
+        } else
+        {
+            console.log('something went wrong.')
+        }
+    });
+}
 
 // Function call to initialize app
 init();
