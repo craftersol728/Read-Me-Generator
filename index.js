@@ -43,6 +43,57 @@ const questions = [
         message:'what is the title of this project',
         validate: isEmpty,
     },
+    {
+        type:'input',
+        name:'description',
+        message:'what is the title of this project',
+        validate: isEmpty,
+    },
+    {
+        type:'input',
+        name:'Install',
+        message:'Enter any installation information required to get your project working, or leave emptyk:',
+    },
+    {
+        type:'input',
+        name:'usage',
+        message:'Enter any usage information your users should be aware of, or leave empty:',
+    },
+    {
+        type:'input',
+        name:'contrib',
+        message:'Enter who or what contributed to this project',
+    },
+    {
+        type:'input',
+        name:'test',
+        message:'Enter test information, or leave empty',
+    },
+    {
+        type:'input',
+        name:'license',
+        message:'What are the licenses used for this project',
+        choices: Object.keys(licenses),
+    },
+    {
+        type:'input',
+        name:'username',
+        message:'Input your github username:',
+        validate: isEmpty,
+    },
+    {
+        type:'input',
+        name:'email',
+        message:'Enter your Email address',
+        validate: isEmpty,
+    },
+    {
+        type:'input',
+        name:'fileName',
+        message:'Enter the name you want for your .md file',
+        default: 'readme.md' ,
+    },
+
 ];
 
 // TODO: Create a function to write README file
