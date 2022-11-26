@@ -1,5 +1,5 @@
 // TODO: Include packages needed for this application
-var inquire = require('inquirer');
+var inquirer = require('inquirer');
 var fs = require('fs');
 
 // a buffer that will change through out the file
@@ -40,12 +40,6 @@ const questions = [
     {
         type:'input',
         name:'title',
-        message:'what is the title of this project',
-        validate: isEmpty,
-    },
-    {
-        type:'input',
-        name:'description',
         message:'what is the title of this project',
         validate: isEmpty,
     },

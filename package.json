@@ -4,14 +4,13 @@
   "description": "A readme generator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^8.2.4"
+    "inquirer": "^8.2.5"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/craftersol728/Read-Me-Generator.git"
