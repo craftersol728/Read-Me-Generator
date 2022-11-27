@@ -43,6 +43,7 @@ const questions = [
         message:'what is the title of this project',
         validate: isEmpty,
     },
+
     {
         type:'input',
         name:'Install',
@@ -56,17 +57,17 @@ const questions = [
     {
         type:'input',
         name:'contrib',
-        message:'Enter who or what contributed to this project',
+        message:'Enter who or what contributed to this project:',
     },
     {
         type:'input',
         name:'test',
-        message:'Enter test information, or leave empty',
+        message:'Enter test information, or leave empty:',
     },
     {
         type:'input',
         name:'license',
-        message:'What are the licenses used for this project',
+        message:'What are the licenses used for this project:',
         choices: Object.keys(licenses),
     },
     {
@@ -78,13 +79,13 @@ const questions = [
     {
         type:'input',
         name:'email',
-        message:'Enter your Email address',
+        message:'Enter your Email address:',
         validate: isEmpty,
     },
     {
         type:'input',
         name:'fileName',
-        message:'Enter the name you want for your .md file',
+        message:'Enter the name you want for your .md file:',
         default: 'readme.md' ,
     },
 
@@ -93,7 +94,7 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) 
 {
-    fs.appendFile(('./outcome/'+fileName),data,function(err)
+    fs.writeFile(('./outcome/'+fileName),data,function(err)
     {
         if (err) throw err;
         console.log ('Saved');
