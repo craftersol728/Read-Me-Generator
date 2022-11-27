@@ -94,7 +94,7 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) 
 {
-    fs.writeFile(('./outcome/'+fileName),data,function(err)
+    fs.writeFile(('./outcome/'+ fileName),data,function(err)
     {
         if (err) throw err;
         console.log ('Saved');
@@ -102,6 +102,9 @@ function writeToFile(fileName, data)
 }
 
 //takes all the user entries and formats the readme
+
+var readmeEntries = {};
+
 function createReadme()
 {
     readmeBuffer += `# ${readmeEntries.title} ${licenses[readmeEntries.license][1]}\n`;
@@ -152,7 +155,7 @@ function init() {
             console.log('prompt cannot- be rendered in the current environment.');
         } else
         {
-            console.log('something went wrong.')
+            console.log((error);
         }
     });
 }
