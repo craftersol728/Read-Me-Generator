@@ -3,7 +3,7 @@ var inquirer = require('inquirer');
 var fs = require('fs');
 
 // a buffer that will change through out the file
-var readMeBuffer = '';
+var readmeBuffer = '';
 
 //read me requirements
 var readMeRequirements = 
@@ -65,7 +65,7 @@ const questions = [
         message:'Enter test information, or leave empty:',
     },
     {
-        type:'input',
+        type:'list',
         name:'license',
         message:'What are the licenses used for this project:',
         choices: Object.keys(licenses),
@@ -155,7 +155,7 @@ function init() {
             console.log('prompt cannot- be rendered in the current environment.');
         } else
         {
-            console.log((error);
+            console.log(error);
         }
     });
 }
